@@ -1,0 +1,1294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chandana M — Data Analyst Portfolio</title>
+  <meta name="description" content="Portfolio of Chandana M — Data Analyst & Cloud Enthusiast. Projects in Python, SQL, AWS, and data visualization." />
+  <meta name="author" content="Chandana M" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+  <style>
+    :root {
+      --bg: #00223b;           /* soft minty green background */
+      --panel: #0b1738;        /* clean white for cards/nav */
+      --muted: #005d15;        /* muted green-gray for secondary text */
+      --text: #fff;         /* dark forest green for main text */
+      --brand: #024306;        /* vibrant green (emerald) for accents */
+      --brand-2: #57b15a;      /* soft green gradient accent */
+      --ring: rgba(52, 211, 153, 0.35);  /* light emerald ring */
+      --ok: #10b981;           /* success green */
+      --warn: #f59e0b;         /* warm yellow for warnings */
+      --danger: #ef4444;       /* red for danger */
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);  /* lighter, softer shadow */
+    }
+
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,Helvetica,sans-serif;
+      /* background: radial-gradient(1200px 800px at 10% -10%, rgba(124,92,255,.12), transparent 60%),
+                  radial-gradient(1000px 900px at 110% 10%, rgba(33,212,253,.10), transparent 60%),
+                  var(--bg); */
+
+      background: #f7f3f3;
+      color:var(--text);
+      line-height:1.6;
+    }
+    a{color:var(--brand);text-decoration:none}
+    a:hover {
+      color: var(--bg);     /* changes to your secondary brand color */
+      transform: scale(1.03);   /* subtle zoom effect */
+    }    
+    img{max-width:100%;display:block}
+    .container{width:min(1100px, 92%);margin-inline:auto}
+    .pill{border:1px solid rgb(30 46 73);padding:.45rem 1.7rem;border-radius:999px;display:inline-flex;gap:.5rem;align-items:center;color:var(--muted)}
+    .tag{display:inline-block;background:rgba(124,92,255,.12);border:1px solid rgba(124,92,255,.35);padding:.3rem .6rem;border-radius:999px;font-size:.8rem;color:#dcd7ff;margin:.2rem .25rem 0 0}
+
+    /* ====== Nav ====== */
+    header{position:fixed;top:0;width:100%;z-index:50;background:rgb(30 46 73);backdrop-filter: blur(10px);border-bottom:1px solid rgba(255,255,255,.06)}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:0.4rem 0}
+    .brand{display:flex;align-items:center;gap:.75rem;font-weight:700;letter-spacing:.2px}
+    .brand .logo{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--brand),var(--brand-2));display:grid;place-items:center;box-shadow:0 8px 24px var(--ring)}
+    .brand .logo span{font-weight:800;color:#fff}
+    .nav ul{display:flex;gap:1rem;list-style:none;margin:0;padding:0}
+    .nav a{color:#dbe3f5;padding:.5rem .75rem;border-radius:10px;display:inline-block}
+    .nav a:hover{background:rgba(255,255,255,.06)}
+    .menu-btn{display:none}
+
+    /* ====== Hero ====== */
+    .hero{padding:80px 0 40px}
+    .grid-hero{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}
+    .kicker{color:var(--muted);margin:0 0 .5rem}
+    h1{font-size:clamp(28px, 4vw, 46px);line-height:1.15;margin:.3rem 0 1rem}
+    .lead{font-size:1.05rem;color:#1e2e49;margin:0 0 1.4rem}
+    .cta{display:flex;gap:.8rem;flex-wrap:wrap}
+    .btn{appearance:none;border:0;cursor:pointer;font-weight:600;border-radius:12px;padding:.9rem 1rem}
+    .btn-primary{background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#fff;box-shadow:0 12px 30px var(--ring)}
+    .btn-ghost{background:rgba(255,255,255,.06);color:#1e2e49;border:1px solid rgb(38 114 42)}
+    .card-hero{background:var(--panel);border:1px solid rgba(255,255,255,.06);border-radius:18px;box-shadow:var(--shadow);padding:18px}
+    .hero-img{border-radius:14px;background:linear-gradient(135deg, rgba(124,92,255,.18), rgba(33,212,253,.18));display:grid;place-items:center;color:#cfd6e6;font-size:.95rem;border:1px dashed rgba(255,255,255,.18)}
+    .grid-hero h1{color: #000;}
+
+    .hero-img {
+      width: 100%;
+      max-width: 400px; /* or any max width you prefer */
+      height: auto;
+      max-height: 418px; /* keep max height */
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(124,92,255,.18), rgba(33,212,253,.18));
+      border: 1px dashed rgba(255,255,255,.18);
+    }
+
+    .hero-img img {
+      max-width: 100%;
+      max-height: 100%;
+      height: auto;
+      width: auto;
+      object-fit: contain; /* ensures the entire image fits inside */
+      display: block;
+      margin: 0 auto;
+      padding: 0; /* remove padding for better fit */
+      border-radius: 50%;
+      border: 1px solid #0b1738;
+      box-shadow: 0 0 15px #0b1738;
+    }
+
+    /* ====== Sections ====== */
+    section{padding:56px 0}
+    .section-title{font-size:1.6rem;margin:0 0 18px}
+    .sub{color:var(--muted);margin:0 0 24px}
+    .panel{background:var(--panel);border:1px solid rgba(255,255,255,.06);border-radius:18px;box-shadow:var(--shadow)}
+    
+    /* === Section Divider === */
+    .section-divider {
+      width: 80%;
+      margin: 60px auto;
+      border: 0;
+      height: 1px;
+      background: linear-gradient(
+        to right,
+        transparent,
+        var(--brand),
+        var(--brand-2),
+        transparent
+      );
+      opacity: 0.6;
+    }
+
+    /* ====== About ====== */
+    .about{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+    .about .me{padding:20px}
+    .kv{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;padding:16px}
+    .kv div{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:12px}
+    .kv b{display:block;font-size:.85rem;color:#dfe7fb}
+    .kv small{color:#d7d9de}
+    .container h2{color: #000;}
+    /* ====== Skills ====== */
+    .skills{display:grid;grid-template-columns:1fr;gap:16px}
+    .skill-groups{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;padding:16px}
+    .skill-card{padding:16px;border-radius:14px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06)}
+    .skill-card h4{margin:0 0 .5rem;font-size:1rem}
+
+    /* ====== Timeline (Education & Experience) ====== */
+    .timeline{position:relative;padding:10px 10px 10px 24px}
+    .timeline::before{content:"";position:absolute;left:12px;top:0;bottom:0;width:2px;background:linear-gradient(var(--brand),transparent)}
+    .t-item{position:relative;margin:0 0 16px;padding-left:18px}
+    .t-item::before{content:"";position:absolute;left:-2px;top:.95rem;width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,var(--brand),var(--brand-2));box-shadow:0 0 0 4px rgba(124,92,255,.18)}
+    .t-h{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap}
+    .t-h b{font-size:1rem}
+    .t-h .pill{font-size:.78rem}
+    .t-sub{color:#d7d9de;margin:.15rem 0 .4rem}
+
+    /* ====== Projects ====== */
+    .projects{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .project{overflow:hidden}
+    .project .cover{aspect-ratio:16/9;border-radius:14px;background:linear-gradient(135deg, rgba(124,92,255,.18), rgba(33,212,253,.18));border:1px dashed rgba(255,255,255,.18);display:grid;place-items:center;color:#cfd6e6}
+    .project .body{padding:14px}
+    .project h4{margin:0 0 .25rem}
+    .project p{color:#cdd3e3;margin:.2rem 0 .6rem}
+
+    /* ====== Contact ====== */
+    .contact{display:grid;grid-template-columns:1fr .9fr;gap:20px}
+    .contact .map{border-radius:14px;overflow:hidden;height:100%;min-height:280px;border:1px solid rgba(255,255,255,.06)}
+    form{display:grid;gap:10px}
+    input,textarea{width:100%;background:#0e131c;border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:.8rem 1rem;color:var(--text);font:inherit}
+    textarea{min-height:120px;resize:vertical}
+    input:focus,textarea:focus{outline:2px solid var(--ring);border-color:transparent}
+
+    /* ====== Footer ====== */
+    footer{padding:8px 0;color:var(--text);border-top:1px solid rgba(255,255,255,.06);background: #0b1738;position: fixed;bottom: 0;width: 100%;}
+
+    /* === Animations === */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease-out;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .project:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease-in-out;
+    }
+
+    .btn, .pill {
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: scale(1.03);
+    }
+
+    .pill:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    /* === Nav Underline Hover === */
+    .nav a {
+      position: relative;
+    }
+
+    .nav a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 2px;
+      width: 100%;
+      height: 2px;
+      background-color: var(--brand);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.3s ease;
+    }
+
+    .nav a:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    /* === Project image zoom on hover === */
+    .project .cover {
+      overflow: hidden;
+      position: relative;
+    }
+
+    .project .cover:hover {
+      cursor: pointer;
+    }
+
+    .project .cover::after {
+      content: "";
+      display: block;
+      position: absolute;
+      inset: 0;
+      background: rgba(255,255,255,0.04);
+      transition: background 0.3s ease;
+    }
+
+    .project .cover:hover::after {
+      background: rgba(255,255,255,0.08);
+    }
+
+    .project .cover img {
+      transition: transform 0.5s ease;
+      height: 28dvh;
+      width: auto;
+    }
+    .project .cover img {
+      max-width: 100%;
+      max-height: 100%;
+      height: auto;
+      width: auto;
+      object-fit: contain; /* ensures the entire image fits inside the container */
+      display: block;
+      margin: 0 auto;
+      transition: transform 0.5s ease;
+    }
+
+    .project .cover {
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      max-height: 200px; /* or adjust as needed */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(124,92,255,.18), rgba(33,212,253,.18));
+      border: 1px dashed rgba(255,255,255,.18);
+    }
+
+
+
+    .project .cover:hover img {
+      transform: scale(1.05);
+    }
+
+    @keyframes bounceIn {
+      0% {
+        opacity: 0;
+        transform: scale(0.95) translateY(30px);
+      }
+      60% {
+        opacity: 1;
+        transform: scale(1.02) translateY(-10px);
+      }
+      100% {
+        transform: scale(1) translateY(0);
+      }
+    }
+
+    .grid-hero {
+      animation: bounceIn 1s ease-out both; 
+    }
+
+    .card-hero {
+      background: white; /* keep card white so image pops */
+      border: 1px solid rgba(255,255,255,.06);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      padding: 18px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* statistical background pattern */
+    .card-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(0,0,0,0.06) 1px, transparent 1px),
+        linear-gradient(rgba(0,0,0,0.06) 1px, transparent 1px);
+      background-size: 20px 20px; /* grid spacing */
+      z-index: 0;
+    }
+
+    .card-hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle at 20% 30%, rgb(0 0 0 / 12%) 0px, #cc99eb59 200px), 
+        radial-gradient(circle at 80% 70%, rgba(33, 150, 243, 0.12) 0px, transparent 250px);
+      z-index: 0;
+    }
+
+    .card-hero img {
+      position: relative;
+      z-index: 1; /* keep image above background */
+      border-radius: 12px;
+    }
+
+    .card-hero.showcase {
+      position: relative;
+      background: white;
+      border: 1px solid rgb(0 0 0 / 99%);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      padding: 40px 20px;
+      height: 300px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    /* Grid background */
+    .card-hero.showcase::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(0,0,0,0.05) 1px, transparent 1px),
+        linear-gradient(rgba(0,0,0,0.05) 1px, transparent 1px);
+      background-size: 20px 20px;
+      z-index: 0;
+    }
+
+    .showcase-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .showcase-content h2 {
+      font-size: 2rem;
+      margin: 0;
+      background: #0b1738;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .showcase-content p {
+      margin: 8px 0 0;
+      font-size: 1rem;
+      color: #333;
+    }
+
+    /* Graph elements */
+    .graph-elements {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .bar {
+      position: absolute;
+      bottom: 0;
+      width: 20px;
+      background: rgba(97,218,0,0.5);
+      border-radius: 4px 4px 0 0;
+    }
+
+    .bar1 { left: 20px; height: 60px; }
+    .bar2 { left: 60px; height: 100px; background: rgba(33,150,243,0.5); }
+    .bar3 { left: 100px; height: 80px; }
+
+    .line-chart {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 60%;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding-top: 8rem;
+      padding-bottom: 6rem;
+      text-align: center;
+      color: #fff;
+    }
+
+    /* Graph background in hero */
+    .graph-elements {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0; /* push behind hero text */
+      background-image: linear-gradient(to right, rgb(0 0 0 / 6%) 1px, transparent 1px), linear-gradient(to top, rgba(16, 16, 16, 0.06) 1px, transparent 1px);
+      background-size: 50px 50px; /* spacing of grid */
+    }
+
+    .bar {
+      position: absolute;
+      bottom: 0;
+      width: 16px; /* wider bars */
+      background: rgb(171 55 27);
+      border-radius: 6px;
+      animation: bounce 2.5s infinite ease-in-out;
+    }
+
+    .bar1 { left: 78%; height: 45%; animation-delay: 0s; }
+    .bar2 { left: 83%; height: 65%; background: rgb(33 150 243 / 72%); animation-delay: 0.4s; }
+    .bar3 { left: 88%; height: 35%; animation-delay: 0.8s; }
+    .bar4 { left: 93%; height: 55%; background: rgb(33 150 243 / 72%); animation-delay: 0.6s; }
+
+    @keyframes bounce {
+      0%, 100% { transform: scaleY(0.6); }
+      50% { transform: scaleY(1.1); }
+    }
+
+    .line-chart {
+      position: absolute;
+      bottom: -5%;
+      left: 0;
+      width: 100%;
+      height: 50%;
+      opacity: 0.4; /* lighter so it's subtle */
+      z-index: 0;   /* stays behind */
+      animation: moveLine 8s linear infinite;
+    }
+
+    .line-chart polyline {
+      stroke-dasharray: 400;   /* length of the dash pattern */
+      stroke-dashoffset: 400;  /* start hidden */
+      animation: drawLine 4s linear infinite;
+    }
+
+    @keyframes drawLine {
+      0% {
+        stroke-dashoffset: 400; /* hidden */
+      }
+      100% {
+        stroke-dashoffset: 0;   /* fully drawn */
+      }
+    }
+
+    .aws-cloudcloud1{
+      top: 20dvh;
+      left: 60%;
+      position: absolute;
+      width: 200px;
+      height: auto;
+      filter: drop-shadow(0 2px 6px rgba(0,0,0,0.2));
+      animation: floatCloud 18s ease-in-out infinite;
+    }
+
+    .cloud1{
+      top: 20dvh;
+      left: 66%;
+      position: absolute;
+      width: 270px;
+      height: auto;
+      filter: drop-shadow(0 2px 6px rgba(0,0,0,0.2));
+      animation: floatCloud 18s ease-in-out infinite;
+    }
+
+    .cloud2{
+      top: 55dvh;
+      left: 40%;
+      position: absolute;
+      width: 200px;
+      height: auto;
+      filter: drop-shadow(0 2px 6px rgba(0,0,0,0.2));
+      animation: floatCloud 18s ease-in-out infinite;
+    }
+
+    @keyframes floatCloud {
+      0%   { transform: translateX(0px); opacity: 0.9; }
+      50%  { transform: translateX(-40px); opacity: 1; }
+      100% { transform: translateX(0px); opacity: 0.9; }
+    }
+
+    /* ====== Code Snippet ====== */
+    .code-snippet {
+      position: absolute;
+      font-family: monospace;
+      font-size: 1.2rem;
+      color: rgb(4 4 4 / 70%);
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 2px solid rgba(0,0,0,0.6); /* cursor */
+      animation: blink 0.8s step-end infinite;
+    }
+
+    /* === typing animation only on specific lengths === */
+    .snip1 {
+      top: 49%;
+      left: 60%;
+      width: 18ch; /* matches “<div class="web"></div>” → 18 chars */
+      animation: typing1 3s steps(18, end) infinite,
+                blink 0.8s step-end infinite;
+    }
+
+    .snip2 {
+      top: 93%;
+      left: 0%;
+      width: 22ch; /* matches “<h1>Hello World</h1>” → 22 chars */
+      animation: typing2 10s steps(22, end) infinite,
+                blink 0.8s step-end infinite;
+    }
+
+    /* Keyframes for typing + deleting */
+    @keyframes typing1 {
+      0% { width: 0ch; }
+      40% { width: 18ch; } /* fully typed */
+      60% { width: 18ch; } /* hold */
+      100% { width: 0ch; } /* delete */
+    }
+
+    @keyframes typing2 {
+      0% { width: 0ch; }
+      40% { width: 22ch; }
+      60% { width: 22ch; }
+      100% { width: 0ch; }
+    }
+
+    /* Blinking cursor */
+    @keyframes blink {
+      from, to { border-color: transparent; }
+      50% { border-color: rgba(0,0,0,0.6); }
+    }
+
+
+    /* ====== Responsive ====== */
+    @media (max-width: 1024px) {
+      .container {
+        width: 95%;
+      }
+      
+      .projects {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+      
+      .skill-groups {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .kv {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* Mobile view */
+    @media (max-width: 868px) {
+      .container {
+        width: 95%;
+        padding: 0 0.75rem;
+      }
+      
+      .nav {
+        padding: 0.6rem 0;
+      }
+      
+      .brand {
+        font-size: 0.9rem;
+      }
+      
+      .brand .logo {
+        width: 28px;
+        height: 28px;
+      }
+      
+      .hero {
+        padding: 80px 0 40px;
+        text-align: center;
+      }
+      
+      h1 {
+        font-size: clamp(20px, 7vw, 36px);
+        margin: 0.5rem 0 1rem;
+      }
+      
+      .lead {
+        font-size: 0.9rem;
+        margin: 0 0 1.2rem;
+      }
+      
+      .btn {
+        padding: 0.8rem 1.5rem;
+        width: 100%;
+        max-width: 250px;
+      }
+      
+      .pill {
+        padding: 0.4rem 1rem;
+        font-size: 0.8rem;
+      }
+      
+      .projects {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+      
+      .skill-groups {
+        grid-template-columns: 1fr;
+      }
+      
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .about {
+        grid-template-columns: 1fr;
+      }
+      
+      .kv {
+        grid-template-columns: 1fr;
+      }
+      
+      .contact {
+        grid-template-columns: 1fr;
+      }
+      
+      .section-title {
+        font-size: 1.4rem;
+      }
+      
+      .t-h {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.3rem;
+      }
+      
+      .t-h b {
+        min-width: auto;
+      }
+      
+      .cloud1 {
+        width: 100px;
+        left: 65%;
+      }
+      
+      .cloud2 {
+        width: 80px;
+        left: 20%;
+      }
+      
+      .code-snippet {
+        font-size: 0.7rem;
+      }
+      
+      .snip1 {
+        left: 2%;
+        top: 60%;
+      }
+      
+      .snip2 {
+        left: 2%;
+        top: 93%;
+      }
+    }
+
+    /* Small mobile view */
+    @media (max-width: 748px) {
+      .nav ul {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgb(30 46 73);
+        flex-direction: column;
+        padding: 1rem;
+        border-top: 1px solid rgba(255,255,255,.06);
+        box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      }
+      
+      .nav ul.show {
+        display: flex;
+      }
+      
+      .nav a {
+        padding: 0.8rem 0;
+        text-align: center;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+      }
+      
+      .nav a:last-child {
+        border-bottom: none;
+      }
+      
+      .menu-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: rgba(255,255,255,0.1);
+        border: 1px solid rgba(255,255,255,0.2);
+        color: #dbe3f5;
+        padding: 0.5rem 0.8rem;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 0.85rem;
+      }
+      /* Disable background graph */
+      .graph-elements {
+        display: none;
+      }
+
+      /* Make sure hero/grid sections center */
+      .grid-hero,
+      .about,
+      .skills,
+      .projects,
+      .contact {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: left;
+        gap: 1rem; /* spacing between items */
+      }
+
+      /* Ensure skill cards & project cards fill width but centered */
+      .skill-groups,
+      .projects {
+        grid-template-columns: 1fr; /* override grid */
+        width: 100%;
+        max-width: 360px; /* keeps them readable on small screens */
+        margin-inline: auto;
+      }
+
+      .skill-card,
+      .project,
+      .card-hero,
+      .panel {
+        width: 100%;
+        max-width: 360px;
+        margin: 0 auto;
+      }
+
+      /* Center hero image */
+      .hero-img {
+        margin: 1rem auto 0;
+        width: 90%;
+        max-width: 320px;
+      }
+
+      /* Center footer text */
+      footer {
+        text-align: center;
+      }
+    }
+
+
+    /* Very small screens */
+    /* @media (max-width: 360px) {
+      .container {
+        width: 98%;
+        padding: 0 0.25rem;
+      }
+      
+      .brand span {
+        display: none; /* Hide brand text on very small screens */
+      /* }
+      
+      h1 {
+        font-size: 1.2rem;
+      }
+      
+      .lead {
+        font-size: 0.85rem;
+      }
+      
+      .btn {
+        font-size: 0.85rem;
+        padding: 0.7rem 1.2rem;
+      }
+    } */
+
+    /* Landscape mobile orientation */
+    @media (max-height: 500px) and (orientation: landscape) {
+      .hero {
+        padding: 60px 0 30px;
+      }
+      
+      .hero-img {
+        max-height: 200px;
+      }
+      
+      .hero-img img {
+        max-height: 150px;
+        padding: 15px;
+      }
+    }
+
+    /* High DPI screens */
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+      .hero-img img {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+      }
+    }
+    
+  </style>
+</head>
+<body>
+  <!-- ====== NAV ====== -->
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"><span>CM</span></div>
+        <span>Chandana M</span>
+      </div>
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#education">Education</a></li>
+          <!-- <li><a href="#contact">Contact</a></li> -->
+        </ul>
+      </nav>
+      <button class="menu-btn pill" id="menuBtn" aria-label="Open menu">☰ <span>Menu</span></button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ====== HERO ====== -->
+    <section class="hero container" id="home">
+      <div class="grid-hero">
+        <div>
+          <p class="kicker">Data Analyst • Cloud Enthusiast • Problem Solver</p>
+          <h1>
+            Hi, I'm 
+            <span style="background:linear-gradient(135deg,var(--brand),var(--brand-2));-webkit-background-clip:text;background-clip:text;color:transparent">
+              Chandana
+            </span> — I turn data into decisions.
+          </h1>
+          <p class="lead">
+            Motivated and detail-oriented Data Analyst with a strong foundation in data analysis and visualization. Experienced with Python,Excel, SQL, and cloud platforms like AWS. I love building useful products from data.
+          </p>
+          <div class="cta">
+            <a class="btn btn-primary" href="#projects">View Projects</a>
+            <a class="pill" href="https://mail.google.com/mail/?view=cm&fs=1&to=chandanagowdam791@gmail.com" target="_blank" rel="noopener">
+              <i class="fas fa-envelope"></i>
+            </a>
+            <a class="pill" href="https://www.linkedin.com/in/chandana-m-64204a2b7" target="_blank" rel="noopener">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Background graph elements -->
+      <div class="graph-elements">
+        <div class="bar bar1"></div>
+        <div class="bar bar2"></div>
+        <div class="bar bar3"></div>
+        <div class="bar bar4"></div>
+
+        <!-- <div class="code-snippet snip1 typing">&lt;div class="web"&gt;&lt;/div&gt;</div> -->
+        <div class="code-snippet snip2 typing">&lt;h1&gt;Hello World&lt;/h1&gt;</div>
+        <!-- <div class="code-snippet snip2">&lt;div id="portfolio"&gt;&lt;/div&gt;</div> -->
+
+        <!-- AWS-like Cloud -->
+        <svg class="aws-cloud cloud1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 40">
+          <defs>
+            <!-- Blue Glow Filter -->
+            <filter id="blueShadow" x="-50%" y="-50%" width="200%" height="200%">
+              <feFlood flood-color="#146EB4" flood-opacity="0.7" result="flood"/>
+              <feComposite in="flood" in2="SourceAlpha" operator="in" result="shadow"/>
+              <feGaussianBlur in="shadow" stdDeviation="4" result="blur"/>
+              <feMerge>
+                <feMergeNode in="blur"/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
+            </filter>
+          </defs>
+
+          <!-- Cloud Shape -->
+          <path 
+            d="M48 24c4 0 8-3 8-8s-4-8-9-8c-1-5-6-8-12-8-6 0-11 4-12 9-5 0-9 4-9 8s4 7 9 7h25z" 
+            fill="rgb(255 255 255 / 6%)" 
+            stroke="#FF9900"
+            stroke-width="2"
+            filter="url(#blueShadow)"
+            opacity="0.95"/>
+        </svg>
+
+
+        <svg class="aws-cloud cloud2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 40">
+          <defs>
+            <!-- Blue Glow Filter -->
+            <filter id="blueShadow" x="-50%" y="-50%" width="200%" height="200%">
+              <feFlood flood-color="#146EB4" flood-opacity="0.7" result="flood"/>
+              <feComposite in="flood" in2="SourceAlpha" operator="in" result="shadow"/>
+              <feGaussianBlur in="shadow" stdDeviation="4" result="blur"/>
+              <feMerge>
+                <feMergeNode in="blur"/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
+            </filter>
+          </defs>
+
+          <!-- Cloud Shape -->
+          <path 
+            d="M48 24c4 0 8-3 8-8s-4-8-9-8c-1-5-6-8-12-8-6 0-11 4-12 9-5 0-9 4-9 8s4 7 9 7h25z" 
+            fill="rgb(255 255 255 / 6%)" 
+            stroke="#FF9900"
+            stroke-width="2"
+            filter="url(#blueShadow)"
+            opacity="0.95"/>
+        </svg>
+
+        <svg class="line-chart" viewBox="0 0 200 100" preserveAspectRatio="none">
+          <polyline 
+            fill="none" 
+            stroke="rgb(33 150 243 / 72%)" 
+            stroke-width="3" 
+            points="0,80 40,60 80,70 120,40 160,50 200,30" />
+        </svg>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+    <!-- ====== ABOUT ====== -->
+    <section id="about">
+      <div class="container">
+        <h2 class="section-title">About Me</h2>
+        <p class="sub">A quick overview of who I am and what I bring.</p>
+        <div class="about">
+          <div class="panel me">
+            <p>
+              Currently working as a <strong>Data Management Executive at Saraf Group</strong> (since April 2025), where I specialize in building solutions using <strong>Excel</strong> and <strong>Google Apps Script</strong>. 
+              With a strong foundation in data analysis and visualization, and experience in Python, SQL, and AWS, I enjoy transforming raw data into actionable insights and efficient workflows.
+            </p>
+            <div class="kv">
+              <div><b>Email</b><small><a style="color: #fff;" href="https://mail.google.com/mail/?view=cm&fs=1&to=chandanagowdam791@gmail.com" target="_blank" rel="noopener">
+            chandanagowdam791@gmail.com</a></small></div>
+              <div><b>Phone</b><small>+91 90367 45785</small></div>
+              <div><b>Location</b><small>Ramohalli, Bengaluru</small></div>
+              <div><b>LinkedIn</b><small><a style="color: #fff;" href="https://www.linkedin.com/in/chandana-m-64204a2b7" target="_blank" rel="noopener">
+            linkedin.com/in/chandana-m-64204a2b7</a></small></div>
+            </div>
+          </div>
+          <!-- <div class="panel"> -->
+            <!-- Optional profile image / collage -->
+            <div class="hero-img" style="background: rgb(255 255 255 / 0%);">
+              <div>
+                <img src="./images/Profile.jpg" alt="Profile">
+              </div>
+            </div>
+          <!-- </div> -->
+        </div>
+      </div>
+    </section>
+    <hr class="section-divider">
+    <!-- ====== SKILLS ====== -->
+    <section id="skills">
+      <div class="container">
+        <h2 class="section-title">Skills</h2>
+        <p class="sub">Technical stack and soft skills I work with day-to-day.</p>
+        <div class="panel skills">
+          <div class="skill-groups">
+
+            <!-- Programming -->
+            <div class="skill-card">
+              <h4>Programming</h4>
+              <span class="tag">Python</span>
+              <span class="tag">Java</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">PHP</span>
+              <span class="tag">SQL</span>
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">Google Apps Script</span>
+            </div>
+
+            <!-- Tools & Platforms -->
+            <div class="skill-card">
+              <h4>Tools & Platforms</h4>
+              <span class="tag">Excel</span>
+              <span class="tag">AWS</span>
+              <span class="tag">IBM Cloud</span>
+              <span class="tag">MySQL</span>
+              <span class="tag">Jupyter Notebook</span>
+              <span class="tag">Linux</span>
+            </div>
+
+            <!-- Soft Skills -->
+            <div class="skill-card">
+              <h4>Soft Skills</h4>
+              <span class="tag">Problem Solving</span>
+              <span class="tag">Critical Thinking</span>
+              <span class="tag">Communication</span>
+              <span class="tag">Team Collaboration</span>
+              <span class="tag">Time Management</span>
+              <span class="tag">Adaptability</span>
+            </div>
+
+            <!-- Certifications -->
+            <div class="skill-card">
+              <h4>Certifications</h4>
+              <span class="tag">IBM Applied Data Science (2025)</span>
+              <span class="tag">AWS re/Start (2024)</span>
+              <span class="tag">Web Development (2024)</span>
+              <span class="tag">SQL (2024)</span>
+              <span class="tag">Python (2024)</span>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ====== EXPERIENCE ====== -->
+
+    <section id="experience">
+      <div class="container">
+        <h2 class="section-title">Experience</h2>
+        <p class="sub">Real-world practice and impact.</p>
+        <div class="panel timeline">
+
+          <!-- Current Job -->
+          <div class="t-item">
+            <div class="t-h">
+              <b>Data Management Executive — Saraf Group</b>
+              <span class="pill" style="border: 1px solid rgb(255 255 255); color: #acc5b3">Apr 2025 – Present</span>
+            </div>
+            <div class="t-sub">
+              Managing and optimizing business data workflows using <b>Excel</b> and <b>Google Apps Script</b>. 
+              Developed automation solutions that reduced manual effort, improved data accuracy, and enhanced reporting efficiency for business operations.
+            </div>
+          </div>
+
+          <!-- Internship -->
+          <div class="t-item">
+            <div class="t-h">
+              <b>Edunet–AICTE Internship</b>
+              <span class="pill" style="border: 1px solid rgb(255 255 255); color: #acc5b3">4 weeks</span>
+            </div>
+            <div class="t-sub">
+              Built <em>Cooking Companion</em>, a Python-based recipe generator with personalized recommendations. 
+              Optimized functionality via data analysis, boosting user satisfaction by <b>20%</b>.
+            </div>
+          </div>
+
+          <!-- AWS Program -->
+          <div class="t-item">
+            <div class="t-h">
+              <b>Tata Strive AWS re/Start Program</b>
+              <span class="pill" style="border: 1px solid rgb(255 255 255); color: #acc5b3">12 weeks</span>
+            </div>
+            <div class="t-sub">
+              Hands-on with AWS services; learned cloud architecture, security, and cost management while implementing solutions on AWS.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+    <!-- ====== PROJECTS ====== -->
+    <section id="projects">
+      <div class="container">
+        <h2 class="section-title">Projects</h2>
+        <p class="sub">Transforming concepts into practical solutions.</p>
+        <div class="projects">
+          <!-- Project 1 -->
+          <article class="panel project">
+            <div class="cover" aria-label="BridgeConnect project cover placeholder">
+              <img src="./images/BridgeConnect.png" alt="">
+            </div>
+            <div class="body">
+              <h4>BridgeConnect — Connect Theory with Practical Experience</h4>
+              <p>
+                  A collaborative web platform designed to bridge the gap between students and industry 
+                  professionals. The platform enables students to connect with mentors, explore internships, 
+                  and collaborate on real-world projects, fostering career growth and industry exposure. 
+                  It simplifies networking, provides a space for knowledge-sharing, and enhances 
+                  opportunities for skill development.
+                </p>              
+              <div>
+                <span class="tag">PHP</span>
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">MySQL</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 2 -->
+          <article class="panel project">
+            <div class="cover" aria-label="Cooking Companion project cover placeholder">
+              <img src="./images/CookingCompanion.png" alt="Cooking Companion">
+            </div>
+            <div class="body">
+              <h4>Cooking Companion — Recipe Generator System</h4>
+              <p>
+                A smart recipe generator that helps users discover personalized meal ideas 
+                based on the ingredients they already have at home. The system integrates 
+                nutrition analysis for health-conscious choices and leverages AWS Rekognition 
+                for image-based ingredient detection. Designed to reduce food waste, encourage 
+                healthier eating, and make cooking more fun and accessible.
+              </p>
+              <div>
+                <span class="tag">Python</span>
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">AWS Rekognition</span>
+              </div>
+            </div>
+
+          </article>
+
+          <!-- Project 3 -->
+          <article class="panel project">
+            <div class="cover" aria-label="FunFilled Flash project cover placeholder">
+              <img src="./images/FunFilledFlash.jpeg" alt="FunFilledFlash">
+            </div>
+            <div class="body">
+              <h4>FunFilled Flash — Event Management System</h4>
+              <p>
+                Event management system designed to streamline the planning, execution, and evaluation 
+                of events ranging from corporate conferences to social gatherings. It manages logistics, 
+                budgets, vendors, and timelines, ensuring seamless experiences while enhancing creativity 
+                and efficiency. Built with a focus on adaptability and delivering impactful client experiences.
+              </p>
+              <div>
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">PHP</span>
+                <span class="tag">MySQL</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ====== EDUCATION ====== -->
+    <section id="education">
+      <div class="container">
+        <h2 class="section-title">Education</h2>
+        <div class="panel timeline">
+          <div class="t-item">
+            <div class="t-h"><b>MCA</b> <span class="pill" style="border: 1px solid rgb(255 255 255); color: #acc5b3">CGPA: 8.71/10</span></div>
+            <div class="t-sub">K.L.E. Society's S. Nijalingappa College — 2024</div>
+          </div>
+          <div class="t-item">
+            <div class="t-h"><b>B.Sc (Computer Science, Mathematics, Statistics)</b> <span class="pill" style="border: 1px solid rgb(255 255 255); color: #acc5b3">CGPA: 8.17/10</span></div>
+            <div class="t-sub">Government Science College — 2022</div>
+          </div>        
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ====== ACHIEVEMENTS ====== -->
+    <section id="achievements">
+      <div class="container">
+        <h2 class="section-title">Achievements</h2>
+        <div class="panel" style="padding:16px">
+          <p><b>State Project Program (SPP) Selection</b> — BridgeConnect was selected for SPP, funded by the Indian Institute of Science (IISc), recognizing its innovative design and impact.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== LANGUAGES ====== -->
+    <section id="languages">
+      <div class="container">
+        <h2 class="section-title">Languages</h2>
+        <p class="sub">Languages I can communicate and work with.</p>
+        <div class="panel skills">
+          <!-- <div class="skill-groups"> -->
+            <div class="skill-card">
+              <h4>Languages Known</h4>
+              <span class="tag">Kannada(ಕನ್ನಡ)</span>
+              <span class="tag">English</span>
+              <span class="tag">Hindi(हिन्दी)</span>
+            </div>
+          <!-- </div> -->
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <!-- © <span id="year"></span> Chandana M · <a href="https://www.linkedin.com/in/chandana-m-64204a2b7" target="_blank" rel="noopener">LinkedIn</a> -->
+      © <span id="year"></span> Chandana M
+    </div>
+  </footer>
+
+<script>
+  // Smooth scrolling for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const href = a.getAttribute('href');
+      if(href.length > 1){
+        e.preventDefault();
+        document.querySelector(href)?.scrollIntoView({behavior:'smooth', block:'start'});
+      }
+      // ✅ Close mobile nav after clicking a link
+      if (window.innerWidth <= 640) {
+        document.querySelector('header nav ul')?.classList.remove('show');
+      }
+    });
+  });
+
+  // Mobile menu toggle — shows nav list on small screens
+  const menuBtn = document.getElementById('menuBtn');
+  const nav = document.querySelector('header nav ul');
+  menuBtn?.addEventListener('click', (e) => {
+    e.stopPropagation(); // prevent immediate close
+    nav.classList.toggle('show');
+  });
+
+  // ✅ Close menu if clicking outside
+  document.addEventListener('click', (e) => {
+    if (nav.classList.contains('show') && !nav.contains(e.target) && e.target !== menuBtn) {
+      nav.classList.remove('show');
+    }
+  });
+
+  // Current year in footer
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // === Scroll reveal using IntersectionObserver ===
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+
+  // Targeting sections and cards
+  document.querySelectorAll('.section-title, .sub, .panel, .project, .hero, .skill-card, .t-item').forEach(el => {
+    el.classList.add('fade-in');
+    observer.observe(el);
+  });
+</script>
+
+</body>
+</html>
