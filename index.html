@@ -12,17 +12,24 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
   <style>
     :root {
-      --bg: #00223b;           /* soft minty green background */
-      --panel: #0b1738;        /* clean white for cards/nav */
-      --muted: #005d15;        /* muted green-gray for secondary text */
-      --text: #fff;         /* dark forest green for main text */
-      --brand: #024306;        /* vibrant green (emerald) for accents */
-      --brand-2: #57b15a;      /* soft green gradient accent */
-      --ring: rgba(52, 211, 153, 0.35);  /* light emerald ring */
-      --ok: #10b981;           /* success green */
-      --warn: #f59e0b;         /* warm yellow for warnings */
-      --danger: #ef4444;       /* red for danger */
-      --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);  /* lighter, softer shadow */
+      --bg: #0a0a0a;              /* Deep black background */
+      --bg-secondary: #111111;     /* Slightly lighter black */
+      --panel: #1a1a1a;           /* Dark gray for cards */
+      --panel-hover: #222222;     /* Hover state for panels */
+      --text: #ffffff;            /* Pure white text */
+      --text-muted: #a0a0a0;     /* Light gray for secondary text */
+      --text-dim: #707070;       /* Dimmer gray for labels */
+      --brand: #00d4ff;          /* Cyan accent */
+      --brand-2: #0099cc;        /* Darker cyan */
+      --brand-gradient: linear-gradient(135deg, #00d4ff, #0099cc);
+      --accent: #ff6b6b;         /* Red accent for highlights */
+      --success: #4ecdc4;        /* Teal for success */
+      --warning: #ffe66d;        /* Yellow for warnings */
+      --border: #333333;         /* Dark border color */
+      --border-light: #444444;   /* Lighter border */
+      --shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      --glow: 0 0 20px rgba(0, 212, 255, 0.3);
+      --muted: #00d4ff;
     }
 
 
@@ -34,28 +41,32 @@
                   radial-gradient(1000px 900px at 110% 10%, rgba(33,212,253,.10), transparent 60%),
                   var(--bg); */
 
-      background: #f7f3f3;
+      /* background: #f7f3f3; */
+      background: 
+        radial-gradient(circle at 20% 10%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 90%, rgba(255, 107, 107, 0.08) 0%, transparent 50%),
+        var(--bg);
       color:var(--text);
       line-height:1.6;
     }
     a{color:var(--brand);text-decoration:none}
     a:hover {
-      color: var(--bg);     /* changes to your secondary brand color */
+      color: var(--text);     /* changes to your secondary brand color */
       transform: scale(1.03);   /* subtle zoom effect */
     }    
     img{max-width:100%;display:block}
     .container{width:min(1100px, 92%);margin-inline:auto}
-    .pill{border:1px solid rgb(30 46 73);padding:.45rem 1.7rem;border-radius:999px;display:inline-flex;gap:.5rem;align-items:center;color:var(--muted)}
-    .tag{display:inline-block;background:rgba(124,92,255,.12);border:1px solid rgba(124,92,255,.35);padding:.3rem .6rem;border-radius:999px;font-size:.8rem;color:#dcd7ff;margin:.2rem .25rem 0 0}
+    .pill{border:1px solid #fff;padding:.45rem 1.7rem;border-radius:999px;display:inline-flex;gap:.5rem;align-items:center;color:var(--muted)}
+    .tag{display:inline-block;background: rgba(0, 212, 255, 0.15);border: 1px solid rgba(0, 212, 255, 0.3);;padding:.3rem .6rem;border-radius:999px;font-size:.8rem;color:var(--brand);margin:.2rem .25rem 0 0}
 
     /* ====== Nav ====== */
     header{position:fixed;top:0;width:100%;z-index:50;background:rgb(30 46 73);backdrop-filter: blur(10px);border-bottom:1px solid rgba(255,255,255,.06)}
     .nav{display:flex;align-items:center;justify-content:space-between;padding:0.4rem 0}
     .brand{display:flex;align-items:center;gap:.75rem;font-weight:700;letter-spacing:.2px}
     .brand .logo{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--brand),var(--brand-2));display:grid;place-items:center;box-shadow:0 8px 24px var(--ring)}
-    .brand .logo span{font-weight:800;color:#fff}
+    .brand .logo span{font-weight:800;color:#000000}
     .nav ul{display:flex;gap:1rem;list-style:none;margin:0;padding:0}
-    .nav a{color:#dbe3f5;padding:.5rem .75rem;border-radius:10px;display:inline-block}
+    .nav a{color:#dbe3f5;padding:.5rem .75rem;display:inline-block}
     .nav a:hover{background:rgba(255,255,255,.06)}
     .menu-btn{display:none}
 
@@ -64,14 +75,14 @@
     .grid-hero{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}
     .kicker{color:var(--muted);margin:0 0 .5rem}
     h1{font-size:clamp(28px, 4vw, 46px);line-height:1.15;margin:.3rem 0 1rem}
-    .lead{font-size:1.05rem;color:#1e2e49;margin:0 0 1.4rem}
+    .lead{font-size:1.05rem;color:var(--text-muted);margin:0 0 1.4rem}
     .cta{display:flex;gap:.8rem;flex-wrap:wrap}
     .btn{appearance:none;border:0;cursor:pointer;font-weight:600;border-radius:12px;padding:.9rem 1rem}
-    .btn-primary{background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#fff;box-shadow:0 12px 30px var(--ring)}
+    .btn-primary{background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#000;box-shadow:0 12px 30px var(--ring)}
     .btn-ghost{background:rgba(255,255,255,.06);color:#1e2e49;border:1px solid rgb(38 114 42)}
     .card-hero{background:var(--panel);border:1px solid rgba(255,255,255,.06);border-radius:18px;box-shadow:var(--shadow);padding:18px}
-    .hero-img{border-radius:14px;background:linear-gradient(135deg, rgba(124,92,255,.18), rgba(33,212,253,.18));display:grid;place-items:center;color:#cfd6e6;font-size:.95rem;border:1px dashed rgba(255,255,255,.18)}
-    .grid-hero h1{color: #000;}
+    .hero-img{border-radius:14px;background:linear-gradient(135deg, rgba(124,92,255,.18), rgba(33,212,253,.18));display:grid;place-items:center;color:#cfd6e6;font-size:.95rem;}
+    /* .grid-hero h1{color: #000;} */
 
     .hero-img {
       width: 100%;
@@ -85,7 +96,6 @@
       overflow: hidden;
       border-radius: 14px;
       background: linear-gradient(135deg, rgba(124,92,255,.18), rgba(33,212,253,.18));
-      border: 1px dashed rgba(255,255,255,.18);
     }
 
     .hero-img img {
@@ -98,14 +108,14 @@
       margin: 0 auto;
       padding: 0; /* remove padding for better fit */
       border-radius: 50%;
-      border: 1px solid #0b1738;
+      border: 3px solid #00d4ff;
       box-shadow: 0 0 15px #0b1738;
     }
 
     /* ====== Sections ====== */
     section{padding:56px 0}
     .section-title{font-size:1.6rem;margin:0 0 18px}
-    .sub{color:var(--muted);margin:0 0 24px}
+    .sub{color:var(--text-muted);margin:0 0 24px}
     .panel{background:var(--panel);border:1px solid rgba(255,255,255,.06);border-radius:18px;box-shadow:var(--shadow)}
     
     /* === Section Divider === */
@@ -131,12 +141,18 @@
     .kv div{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:12px}
     .kv b{display:block;font-size:.85rem;color:#dfe7fb}
     .kv small{color:#d7d9de}
-    .container h2{color: #000;}
+    .container h2{color:var(--muted);}
     /* ====== Skills ====== */
     .skills{display:grid;grid-template-columns:1fr;gap:16px}
     .skill-groups{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;padding:16px}
-    .skill-card{padding:16px;border-radius:14px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06)}
+    .skill-card{padding:16px;border-radius:14px;background:rgba(255,255,255,.03);border:1px solid var(--brand);transition: all 0.3s ease}
     .skill-card h4{margin:0 0 .5rem;font-size:1rem}
+
+    .skill-card:hover {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: var(--brand);
+      transform: translateY(-5px);
+    }
 
     /* ====== Timeline (Education & Experience) ====== */
     .timeline{position:relative;padding:10px 10px 10px 24px}
@@ -388,18 +404,6 @@
       pointer-events: none;
     }
 
-    .bar {
-      position: absolute;
-      bottom: 0;
-      width: 20px;
-      background: rgba(97,218,0,0.5);
-      border-radius: 4px 4px 0 0;
-    }
-
-    .bar1 { left: 20px; height: 60px; }
-    .bar2 { left: 60px; height: 100px; background: rgba(33,150,243,0.5); }
-    .bar3 { left: 100px; height: 80px; }
-
     .line-chart {
       position: absolute;
       bottom: 0;
@@ -427,7 +431,7 @@
       pointer-events: none;
       overflow: hidden;
       z-index: 0; /* push behind hero text */
-      background-image: linear-gradient(to right, rgb(0 0 0 / 6%) 1px, transparent 1px), linear-gradient(to top, rgba(16, 16, 16, 0.06) 1px, transparent 1px);
+      background-image: linear-gradient(to right, rgb(255 255 255 / 0%) 1px, transparent 1px), linear-gradient(to top, rgb(255 255 255 / 8%) 1px, transparent 1px);
       background-size: 50px 50px; /* spacing of grid */
     }
 
@@ -435,19 +439,20 @@
       position: absolute;
       bottom: 0;
       width: 16px; /* wider bars */
-      background: rgb(171 55 27);
-      border-radius: 6px;
+      background: rgb(255 246 107);
+      border-top-left-radius: 6px;
+      border-top-right-radius: 6px;
       animation: bounce 2.5s infinite ease-in-out;
     }
 
-    .bar1 { left: 78%; height: 45%; animation-delay: 0s; }
-    .bar2 { left: 83%; height: 65%; background: rgb(33 150 243 / 72%); animation-delay: 0.4s; }
-    .bar3 { left: 88%; height: 35%; animation-delay: 0.8s; }
-    .bar4 { left: 93%; height: 55%; background: rgb(33 150 243 / 72%); animation-delay: 0.6s; }
+    .bar1 { left: 78%; height: 15%; animation-delay: 0s; }
+    .bar2 { left: 83%; height: 25%; background: rgb(0 161 211); animation-delay: 0.4s; }
+    .bar3 { left: 88%; height: 4%; animation-delay: 0.8s; }
+    .bar4 { left: 93%; height: 35%; background: rgb(0 161 211); animation-delay: 0.6s; }
 
     @keyframes bounce {
-      0%, 100% { transform: scaleY(0.6); }
-      50% { transform: scaleY(1.1); }
+      0%, 100% { transform: scaleY(1.0); }
+      50% { transform: scaleY(1.5); }
     }
 
     .line-chart {
@@ -456,7 +461,7 @@
       left: 0;
       width: 100%;
       height: 50%;
-      opacity: 0.4; /* lighter so it's subtle */
+      opacity: 0.8; /* lighter so it's subtle */
       z-index: 0;   /* stays behind */
       animation: moveLine 8s linear infinite;
     }
@@ -464,7 +469,7 @@
     .line-chart polyline {
       stroke-dasharray: 400;   /* length of the dash pattern */
       stroke-dashoffset: 400;  /* start hidden */
-      animation: drawLine 4s linear infinite;
+      animation: drawLine 8s linear infinite;
     }
 
     @keyframes drawLine {
@@ -476,27 +481,17 @@
       }
     }
 
-    .aws-cloudcloud1{
-      top: 20dvh;
-      left: 60%;
-      position: absolute;
-      width: 200px;
-      height: auto;
-      filter: drop-shadow(0 2px 6px rgba(0,0,0,0.2));
-      animation: floatCloud 18s ease-in-out infinite;
-    }
-
     .cloud1{
-      top: 20dvh;
-      left: 66%;
+      top: 8dvh;
+      left: 50%;
       position: absolute;
-      width: 270px;
+      width: 75dvh;
       height: auto;
       filter: drop-shadow(0 2px 6px rgba(0,0,0,0.2));
       animation: floatCloud 18s ease-in-out infinite;
     }
 
-    .cloud2{
+    /* .cloud2{
       top: 55dvh;
       left: 40%;
       position: absolute;
@@ -504,7 +499,7 @@
       height: auto;
       filter: drop-shadow(0 2px 6px rgba(0,0,0,0.2));
       animation: floatCloud 18s ease-in-out infinite;
-    }
+    } */
 
     @keyframes floatCloud {
       0%   { transform: translateX(0px); opacity: 0.9; }
@@ -517,27 +512,18 @@
       position: absolute;
       font-family: monospace;
       font-size: 1.2rem;
-      color: rgb(4 4 4 / 70%);
+      color: rgb(255 246 107);
       white-space: nowrap;
       overflow: hidden;
       border-right: 2px solid rgba(0,0,0,0.6); /* cursor */
-      animation: blink 0.8s step-end infinite;
     }
 
     /* === typing animation only on specific lengths === */
-    .snip1 {
-      top: 49%;
-      left: 60%;
-      width: 18ch; /* matches “<div class="web"></div>” → 18 chars */
-      animation: typing1 3s steps(18, end) infinite,
-                blink 0.8s step-end infinite;
-    }
-
-    .snip2 {
-      top: 93%;
-      left: 0%;
-      width: 22ch; /* matches “<h1>Hello World</h1>” → 22 chars */
-      animation: typing2 10s steps(22, end) infinite,
+    .snip {
+      top: 39%;
+      left: 64%;
+      width: 20ch; /* matches “<h1>Hello World</h1>” → 22 chars */
+      animation: typing2 10s steps(20, end) infinite,
                 blink 0.8s step-end infinite;
     }
 
@@ -561,7 +547,39 @@
       from, to { border-color: transparent; }
       50% { border-color: rgba(0,0,0,0.6); }
     }
+    
+    header nav ul li a.active {
+      color: #fda118;
+      font-weight: bold;
+      border-bottom: 2px solid #fda31c;
+    }
 
+    .modal {
+      display: none; /* Hidden initially */
+      position: fixed;
+      z-index: 1000;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.6);
+    }
+
+    .modal .close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: #fff;
+      font-size: 32px;
+      font-weight: bold;
+      cursor: pointer;
+    }
 
     /* ====== Responsive ====== */
     @media (max-width: 1024px) {
@@ -673,21 +691,16 @@
         left: 65%;
       }
       
-      .cloud2 {
+      /* .cloud2 {
         width: 80px;
         left: 20%;
-      }
+      } */
       
       .code-snippet {
         font-size: 0.7rem;
       }
-      
-      .snip1 {
-        left: 2%;
-        top: 60%;
-      }
-      
-      .snip2 {
+
+      .snip {
         left: 2%;
         top: 93%;
       }
@@ -893,12 +906,10 @@
         <div class="bar bar3"></div>
         <div class="bar bar4"></div>
 
-        <!-- <div class="code-snippet snip1 typing">&lt;div class="web"&gt;&lt;/div&gt;</div> -->
-        <div class="code-snippet snip2 typing">&lt;h1&gt;Hello World&lt;/h1&gt;</div>
-        <!-- <div class="code-snippet snip2">&lt;div id="portfolio"&gt;&lt;/div&gt;</div> -->
+        <div class="code-snippet snip typing">&lt;h1&gt;Hello World&lt;/h1&gt;</div>
 
         <!-- AWS-like Cloud -->
-        <svg class="aws-cloud cloud1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 40">
+        <svg class="aws-cloud cloud1" xmlns="http://www.w3.org/2000/svg" viewBox="0 -5 64 40">
           <defs>
             <!-- Blue Glow Filter -->
             <filter id="blueShadow" x="-50%" y="-50%" width="200%" height="200%">
@@ -917,16 +928,16 @@
             d="M48 24c4 0 8-3 8-8s-4-8-9-8c-1-5-6-8-12-8-6 0-11 4-12 9-5 0-9 4-9 8s4 7 9 7h25z" 
             fill="rgb(255 255 255 / 6%)" 
             stroke="#FF9900"
-            stroke-width="2"
+            stroke-width="1"
             filter="url(#blueShadow)"
             opacity="0.95"/>
         </svg>
 
 
-        <svg class="aws-cloud cloud2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 40">
-          <defs>
+        <!-- <svg class="aws-cloud cloud2" xmlns="http://www.w3.org/2000/svg" viewBox="0 -5 64 40">
+          <defs> -->
             <!-- Blue Glow Filter -->
-            <filter id="blueShadow" x="-50%" y="-50%" width="200%" height="200%">
+            <!-- <filter id="blueShadow" x="-50%" y="-50%" width="200%" height="200%">
               <feFlood flood-color="#146EB4" flood-opacity="0.7" result="flood"/>
               <feComposite in="flood" in2="SourceAlpha" operator="in" result="shadow"/>
               <feGaussianBlur in="shadow" stdDeviation="4" result="blur"/>
@@ -935,22 +946,22 @@
                 <feMergeNode in="SourceGraphic"/>
               </feMerge>
             </filter>
-          </defs>
+          </defs> -->
 
           <!-- Cloud Shape -->
-          <path 
+          <!-- <path 
             d="M48 24c4 0 8-3 8-8s-4-8-9-8c-1-5-6-8-12-8-6 0-11 4-12 9-5 0-9 4-9 8s4 7 9 7h25z" 
             fill="rgb(255 255 255 / 6%)" 
             stroke="#FF9900"
             stroke-width="2"
             filter="url(#blueShadow)"
             opacity="0.95"/>
-        </svg>
+        </svg> -->
 
         <svg class="line-chart" viewBox="0 0 200 100" preserveAspectRatio="none">
           <polyline 
             fill="none" 
-            stroke="rgb(33 150 243 / 72%)" 
+            stroke="#fff" 
             stroke-width="3" 
             points="0,80 40,60 80,70 120,40 160,50 200,30" />
         </svg>
@@ -1036,11 +1047,17 @@
             <!-- Certifications -->
             <div class="skill-card">
               <h4>Certifications</h4>
-              <span class="tag">IBM Applied Data Science (2025)</span>
-              <span class="tag">AWS re/Start (2024)</span>
-              <span class="tag">Web Development (2024)</span>
-              <span class="tag">SQL (2024)</span>
-              <span class="tag">Python (2024)</span>
+              <span class="tag" data-cert="./images/ibm.png" style="cursor: pointer;">IBM Applied Data Science (2025)</span>
+              <span class="tag" data-cert="./images/aws-certificate.png" style="cursor: pointer;">AWS re/Start (2024)</span>
+              <span class="tag" data-cert="./images/webdevelopment.jpg" style="cursor: pointer;">Web Development (2024)</span>
+              <span class="tag" data-cert="./images/sql.png" style="cursor: pointer;">SQL (2024)</span>
+              <span class="tag" data-cert="./images/python.png" style="cursor: pointer;">Python (2024)</span>
+            </div>
+
+            <!-- Certificate Modal (Hidden by default) -->
+            <div id="certModal" class="modal">
+              <span class="close">&times;</span>
+              <img id="certImg" src="" alt="Certificate">
             </div>
 
           </div>
@@ -1243,9 +1260,9 @@
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
       const href = a.getAttribute('href');
-      if(href.length > 1){
+      if (href.length > 1) {
         e.preventDefault();
-        document.querySelector(href)?.scrollIntoView({behavior:'smooth', block:'start'});
+        document.querySelector(href)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
       // ✅ Close mobile nav after clicking a link
       if (window.innerWidth <= 640) {
@@ -1270,23 +1287,69 @@
   });
 
   // Current year in footer
-  document.getElementById('year').textContent = new Date().getFullYear();
+  const yearEl = document.getElementById('year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  // === Scroll reveal using IntersectionObserver ===
+  // === IntersectionObserver for both scroll reveal & active nav link ===
+  const sections = document.querySelectorAll("main section");
+  const navLinks = document.querySelectorAll("header nav ul li a");
+
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
+      // === Reveal on scroll ===
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
       }
+
+      // === Active nav link highlight ===
+      if (entry.isIntersecting && entry.target.tagName === "SECTION") {
+        navLinks.forEach(link => link.classList.remove("active"));
+        const id = entry.target.getAttribute("id");
+        const activeLink = document.querySelector(`header nav ul li a[href="#${id}"]`);
+        if (activeLink) {
+          activeLink.classList.add("active");
+        }
+      }
     });
   }, {
-    threshold: 0.1
+    threshold: 0.6
   });
 
-  // Targeting sections and cards
-  document.querySelectorAll('.section-title, .sub, .panel, .project, .hero, .skill-card, .t-item').forEach(el => {
-    el.classList.add('fade-in');
-    observer.observe(el);
+  // Observe sections for nav highlight
+  sections.forEach(section => observer.observe(section));
+
+  // Observe elements for reveal
+  document.querySelectorAll('.section-title, .sub, .panel, .project, .hero, .skill-card, .t-item')
+    .forEach(el => {
+      el.classList.add('fade-in');
+      observer.observe(el);
+    });
+</script>
+<script>
+  const modal = document.getElementById("certModal");
+  const img = document.getElementById("certImg");
+  const closeBtn = document.querySelector(".modal .close");
+
+  // Open only the clicked certificate
+  document.querySelectorAll(".tag[data-cert]").forEach(tag => {
+    tag.addEventListener("click", () => {
+      img.src = tag.getAttribute("data-cert"); // load only clicked one
+      modal.style.display = "flex";
+    });
+  });
+
+  // Close on "X"
+  closeBtn.addEventListener("click", () => {
+    modal.style.display = "none";
+    img.src = ""; // reset
+  });
+
+  // Close when clicking outside the image
+  window.addEventListener("click", e => {
+    if (e.target === modal) {
+      modal.style.display = "none";
+      img.src = "";
+    }
   });
 </script>
 
